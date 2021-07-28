@@ -4,4 +4,8 @@
   - hosts: webservers
     become: true
     roles:
-      - webservers
+      - install
+      - nginx
+      - mysql
+      - ufw
+      - php

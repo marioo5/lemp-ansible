@@ -1,2 +1,8 @@
 ---
 # vars file for mysql
+mysql_root_password: "Bosonit2020"
+http_host: "pruebaansible"
+http_conf: "pruebaansible.conf"
+http_port: "80"
+path_nginx: "/etc/nginx"
+

@@ -1,2 +1,19 @@
 ---
 # tasks file for nginx
+- name: Sets Nginx conf file
+  template:
+    src: "files/nginx.conf.j2"
+    dest: "{{ path_nginx }}/sites-available/{{ http_conf }}"
+
+- name: Enables new site
+  file:
+    src: "{{ path_nginx }}/sites-available/{{ http_conf }}"
+    dest: "{{ path_nginx }}/sites-enabled/{{ http_conf }}"
+    state: link
+  notify: Reload Nginx
+
+- name: Removes "default" site
+  file:
+    path: "{{ path_nginx }}/sites-enabled/default"
+    state: absent
+  notify: Reload Nginx

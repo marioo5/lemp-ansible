@@ -1,0 +1,9 @@
+---
+# tasks file for install
+- name: Install Prerequisites
+  apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+  loop: [ 'aptitude' ]
+
+- name: Install LEMP Packages
+  apt: name={{ item }} update_cache=yes state=latest
+  loop: [ 'nginx', 'mysql-server', 'python3-pymysql', 'php-fpm', 'php-mysql' ]
