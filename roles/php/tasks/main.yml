@@ -2,5 +2,5 @@
 # tasks file for php
 - name: Sets Up PHP Info Page
   template:
-    src: "files/info.php.j2"
+    src: "info.php.j2"
     dest: "/var/www/html/info.php"
